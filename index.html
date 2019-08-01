@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Yogasmara">
+    <title>Simple Filterable List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="center-align">
+        My Contacts
+      </h1>
+      <input type="text" id="filterInput" placeholder="Search names...">
+      <ul id="names" class="collection with-header">
+
+        <li class="collection-header">
+          <h5>A</h5>
+        </li>
+        <li class="collection-item">
+          <a href="#">Abe</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">Adam</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">Alan</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">Ana</a>
+        </li>
+
+        <li class="collection-header">
+          <h5>B</h5>
+        </li>
+        <li class="collection-item">
+          <a href="#">Babe</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">Badam</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">Balan</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">Bana</a>
+        </li>
+
+        <li class="collection-header">
+          <h5>C</h5>
+        </li>
+        <li class="collection-item">
+          <a href="#">Cabe</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">Cadam</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">Calan</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">Cana</a>
+        </li>
+
+        <li class="collection-header">
+          <h5>D</h5>
+        </li>
+        <li class="collection-item">
+          <a href="#">Dabe</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">Dadam</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">Dalan</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">Dana</a>
+        </li>
+      </ul>
+    </div>
+    <script type="text/javascript">
+    // Get input element
+      let filterInput = document.getElementById('filterInput');
+      // add event listener
+      filterInput.addEventListener('keyup', filterNames);
+
+      function filterNames(){
+        // get value of input
+        let filterValue = document.getElementById('filterInput').value.toUpperCase();
+
+        // get names ul
+        let ul = document.getElementById('names');
+        // get li from ul
+        let li = document.querySelectorAll('li.collection-item');
+        console.log(li);
+
+        // Loop trough collection-item list
+        for(let i = 0; i < li.length; i++){
+          let a = li[i].getElementsByTagName('a')[0];
+          // if matched
+          if(a.innerHTML.toUpperCase().indexOf(filterValue ) > -1){
+            li[i].style.display = '';
+          } else {
+            li[i].style.display = 'none';
+          }
+        }
+
+      }
+    </script>
+  </body>
+</html>
